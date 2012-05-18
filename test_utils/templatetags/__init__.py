@@ -1,7 +1,7 @@
 import re
 import os
 from django.conf import settings
-from django.template.loaders.filesystem import load_template_source
+from django.template.loaders.filesystem import Loader
 from django import template
 
 from test_utils.testmaker import Testmaker
@@ -33,7 +33,7 @@ class TemplateParser(object):
         self.tests = []
         #Accept both template names and template strings
         try:
-            self.template_string, self.filepath = load_template_source(template.name)
+            self.template_string, self.filepath = Loader.load_template_source(template.name)
         except:
             self.template_string = template
             self.filepath = None
