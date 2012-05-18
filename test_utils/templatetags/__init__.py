@@ -33,7 +33,7 @@ class TemplateParser(object):
         self.tests = []
         #Accept both template names and template strings
         try:
-            self.template_string, self.filepath = Loader.load_template_source(template.name)
+            self.template_string, self.filepath = Loader().load_template_source(template.name)
         except:
             self.template_string = template
             self.filepath = None
