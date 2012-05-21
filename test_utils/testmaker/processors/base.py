@@ -6,6 +6,7 @@ from django.template.defaultfilters import slugify as base_slugify
 from django.template import Template, Context
 from django.utils.encoding import force_unicode
 from django.utils.safestring import mark_safe
+from django.conf import settings
 
 from test_utils.templatetags import TemplateParser
 
@@ -13,7 +14,7 @@ TEST_TEMPLATE = 'Override in Subclass'
 STATUS_TEMPLATE = 'Override in Subclass'
 CONTEXT_TEMPLATE = 'Override in Subclass'
 #DISCARD_CONTEXT_KEYS = ('LANGUAGES',)
-DISCARD_CONTEXT_KEYS = []
+DISCARD_CONTEXT_KEYS = getattr(settings, 'TESTMAKER_DISCARD_CONTEXT_KEYS', [])
 
 def safe_dict(dict):
     new_dic = {}
