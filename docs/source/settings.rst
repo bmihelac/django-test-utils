@@ -42,3 +42,10 @@ To add your own serializers, use the TEST_SERIALIZATION_MODULES setting::
     TEST_SERIALIZATION_MODULES = {
         'awesome': 'my_sweet_app.serializers.awesome',
     }
+
+TESTMAKER_DISCARD_CONTEXT_KEYS
+------------------------------
+
+Skip context keys.
+
+Default value is empty list.
