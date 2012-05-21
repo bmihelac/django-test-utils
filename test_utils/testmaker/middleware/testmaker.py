@@ -63,6 +63,9 @@ class TestMakerMiddleware(object):
             if request.method.lower() == "get":
                 setup_test_environment()
                 c = Client(REMOTE_ADDR='127.0.0.1')
+                for k, v in request.COOKIES.iteritems():
+                    c.cookies[k] = v
+
                 getdict = request.GET.copy()
                 getdict['test_client_true'] = 'yes' #avoid recursion
                 response = c.get(request.path, getdict)
