@@ -1,7 +1,8 @@
 import base
 
 TEST_TEMPLATE = \
-"""    def test_{{path}}_{{time}}(self):
+"""
+    def test_{{path}}_{{time}}(self):
         r = self.client.{{method}}({{request_str}})"""
 
 STATUS_TEMPLATE  = \
