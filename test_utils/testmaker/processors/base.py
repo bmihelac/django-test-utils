@@ -104,7 +104,8 @@ class Processer(object):
         for d in context.dicts:
             if isinstance(d, Context):
                 keys += self._get_context_keys(d)
-            keys += d.keys()
+            else:
+                keys += d.keys()
         return keys
 
     def _log_context(self, context):
