@@ -1,5 +1,5 @@
 import base
-from django.utils import simplejson as json
+import json
 from test_utils.testmaker.serializers import REQUEST_UNIQUE_STRING, RESPONSE_UNIQUE_STRING
 
 class Serializer(base.Serializer):
