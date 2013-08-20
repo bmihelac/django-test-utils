@@ -4,6 +4,8 @@ This file is to test testmaker. It will run over the polls app and with the craw
 from django.test.testcases import TestCase
 from test_utils.testmaker import Testmaker
 from django.conf import settings
+import django
+import unittest
 import os
 
 class TestMakerTests(TestCase):
@@ -24,6 +26,9 @@ class TestMakerTests(TestCase):
         os.remove('test_file')
         os.remove('serialize_file')
 
+
+    @unittest.skipIf(django.get_version()[:3] < "1.6",
+                     "See https://code.djangoproject.com/ticket/18356")
     def test_basic_testmaker(self):
         self.client.get('/')
         logs = open('test_file')
