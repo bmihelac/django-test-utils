@@ -12,7 +12,7 @@ class TestAssertions(TestCase, DiffTestCaseMixin):
         try:
             self.failIfDiff(dict1, dict2)
         except AssertionError, e:
-            self.failIfDiff(e.message, """\n--- First \n\n+++ Second \n\n@@ -1,1 +1,1 @@\n\n-'I love':'you'\n+'I love':'moo'\n""")
+            self.failIfDiff(e.message, """\n--- First\n\n+++ Second\n\n@@ -1 +1 @@\n\n-'I love':'you'\n+'I love':'moo'\n""")
 
     def test_assert_no_diff_list(self):
         list1 = ['I love', 'you']
@@ -20,4 +20,4 @@ class TestAssertions(TestCase, DiffTestCaseMixin):
         try:
             self.failIfDiff(list1, list2)
         except AssertionError, e:
-            self.failIfDiff(e.message, """\n--- First \n\n+++ Second \n\n@@ -1,2 +1,2 @@\n\n 'I love'\n-'you'\n+'to moo'\n""")
+            self.failIfDiff(e.message, """\n--- First\n\n+++ Second\n\n@@ -1,2 +1,2 @@\n\n 'I love'\n-'you'\n+'to moo'\n""")
