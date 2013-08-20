@@ -1,1 +1,3 @@
 *.pyc
+.tox
+django_test_utils.egg-info/
