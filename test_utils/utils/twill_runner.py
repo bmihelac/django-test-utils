@@ -50,7 +50,6 @@ import twill.commands
 import twill.browser
 
 from django.conf import settings
-from django.core.servers.basehttp import AdminMediaHandler
 from django.core.handlers.wsgi import WSGIHandler
 from django.core.urlresolvers import reverse
 from django.http import HttpRequest
@@ -117,7 +116,7 @@ def setup(host=None, port=None, allow_xhtml=True, propagate=True):
 
     if not key in INSTALLED:
         # installer wsgi handler
-        app = DjangoWsgiFix(AdminMediaHandler(WSGIHandler()))
+        app = DjangoWsgiFix(WSGIHandler())
         twill.add_wsgi_intercept(host, port, lambda: app)
 
         # start browser fresh
