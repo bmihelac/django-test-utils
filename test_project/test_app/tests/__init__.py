@@ -1,10 +1,10 @@
-from assertions_tests import *
-from templatetags_tests import *
-from testmaker_tests import *
-from crawler_tests import *
+from test_assertions import *
+from test_templatetags import *
+from test_testmaker import *
+from test_crawler import *
 
-import twill_tests
+import test_twill
 
 __test__ =  {
-'TWILL': twill_tests,
+'TWILL': test_twill,
 }
