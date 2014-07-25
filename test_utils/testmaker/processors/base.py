@@ -103,7 +103,8 @@ class Processer(object):
         for d in context.dicts:
             if isinstance(d, Context):
                 keys += self._get_context_keys(d)
-            keys += d.keys()
+            if (d.keys() is not None):
+                keys += d.keys()
         return keys
 
     def _log_context(self, context):
