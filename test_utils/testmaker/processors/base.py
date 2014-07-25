@@ -103,7 +103,7 @@ class Processer(object):
         for d in context.dicts:
             if isinstance(d, Context):
                 keys += self._get_context_keys(d)
-            if (d.keys() is not None):
+            if hasattr(d, 'keys'):
                 keys += d.keys()
         return keys
 
